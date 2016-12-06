@@ -20,10 +20,39 @@ class Calculator extends Component {
   constructor() {
     super();
     this.state = {
-      operation: '0'
+      operation: '0',
+      answer: ''
     };
     this.updateOperation = this.updateOperation.bind(this);
     this.resetOperation = this.resetOperation.bind(this);
+    this.completeOperation = this.completeOperation.bind(this);
+  }
+
+  completeOperation() {
+    var operation = this.state.operation;
+    var answer;
+    var nums = operation.split(/[+=/*]/);
+    var operator = operation.split(/[0-9]/).filter(Boolean);
+    var part1 = nums[0];
+    var part2 = nums[1];
+    if(operator==='+'){
+      answer = part1 + part2;
+    }
+    else if(operator === '-'){
+      answer = part1 - part2;
+    }
+    else if(operator === '*'){
+      answer = part1 * part2;
+    }
+    else if(operator === '/'){
+      answer = part1 / part2;
+    }
+    else {
+      answer = 'invalid'
+    }
+    this.setState({
+      answer: answer
+    })
   }
 
   updateOperation(char) {
@@ -48,19 +77,22 @@ class Calculator extends Component {
   render() {
     return (
       <div className='calculator'>
-      <Result operation={this.state.operation}/>
-      <Buttons onUpdate={this.updateOperation.bind(this)} reset={this.resetOperation.bind(this)}/>
+      <Result operation={this.state.operation} answer={this.state.answer}/>
+      <Buttons onUpdate={this.updateOperation.bind(this)} reset={this.resetOperation.bind(this)} onResult={this.completeOperation.bind(this)}/>
       </div>
       );
   }
 }
 
 class Result extends Component {
+
   render() {
     let operation = this.props.operation
+    let answer = this.props.answer
     return (
       <div className='result-area'>
       <p>{operation}</p>
+      <p>{answer}</p>
       </div>
       );
   }
@@ -72,7 +104,7 @@ class Buttons extends Component {
       <div className='button-holder'>
         <NumberButtons range={[0,9]} onUpdate={this.props.onUpdate.bind(this)} />
         <Operators onUpdate={this.props.onUpdate.bind(this)} />
-        <input type='button' className="equal-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value='=' />
+        <input type='button' className="equal-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value='=' onClick={this.props.onResult.bind()} />
         <input type='button' className='reset-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored' value='reset' onClick={this.props.reset.bind()}/>
       </div>
     )
