@@ -32,9 +32,9 @@ class Calculator extends Component {
     var operation = this.state.operation;
     var answer;
     var nums = operation.split(/[+=/*]/);
-    var operator = operation.split(/[0-9]/).filter(Boolean);
-    var part1 = nums[0];
-    var part2 = nums[1];
+    var operator = operation.split(/[0-9]/).filter(Boolean)[0];
+    var part1 = parseInt(nums[0]);
+    var part2 = parseInt(nums[1]);
     if(operator==='+'){
       answer = part1 + part2;
     }
