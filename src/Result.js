@@ -8,8 +8,8 @@ class Result extends Component {
     let answer = this.props.answer
     return (
       <div className='result-area'>
-      <p>{operation}</p>
-      <p>{answer}</p>
+      <p className='results'>{operation}</p>
+      <p className='results'>{answer}</p>
       </div>
       );
   }
