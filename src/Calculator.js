@@ -9,7 +9,7 @@ class Calculator extends Component {
     super();
     this.state = {
       operation: '0',
-      answer: ''
+      answer: '---'
     };
     this.updateOperation = this.updateOperation.bind(this);
     this.resetOperation = this.resetOperation.bind(this);
@@ -17,28 +17,7 @@ class Calculator extends Component {
   }
 
   completeOperation() {
-    var operation = this.state.operation;
-    var answer;
-    var nums = operation.split(/[+-/*]/);
-    var operator = operation.split(/[0-9]/).filter(Boolean)[0];
-    var part1 = parseInt(nums[0], 10);
-    var part2 = parseInt(nums[1], 10);
-    if(operator==='+'){
-      answer = part1 + part2;
-    }
-    else if(operator === '-'){
-      debugger;
-      answer = (part1 - part2);
-    }
-    else if(operator === '*'){
-      answer = part1 * part2;
-    }
-    else if(operator === '/'){
-      answer = part1 / part2;
-    }
-    else {
-      answer = 'invalid'
-    }
+    var answer = eval(this.state.operation);
     this.setState({
       answer: answer
     })
@@ -59,7 +38,8 @@ class Calculator extends Component {
 
   resetOperation() {
     this.setState({
-      operation: '0'
+      operation: '0',
+      answer: '---'
     })
   }
 
