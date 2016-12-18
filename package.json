@@ -22,5 +22,6 @@
   "repository": {
   "type": "git",
   "url": "git://github.com/dixonscottr/react-calc.git"
-  }
+  },
+  "homepage": "http://dixonscottr.github.io/react-calc"
 }
