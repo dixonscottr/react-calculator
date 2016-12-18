@@ -1,5 +1,5 @@
 # React-Calculator
-A calculator using React to update in real-time
+A calculator using React to update in real-time, deployed on [Heroku](https://react-calc.herokuapp.com/)
 
 ###Frameworks used:
 * [React](https://facebook.github.io/react/)
