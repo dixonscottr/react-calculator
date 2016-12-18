@@ -37,6 +37,11 @@
 .op-button {
   color: silver;
   background-color: black;
+  display: block;
+}
+
+.operators {
+  float: right;
 }
 
 .App {
