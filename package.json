@@ -6,6 +6,7 @@
     "npm": "3.10.10"
   },
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.8.1"
   },
   "dependencies": {
@@ -20,8 +21,8 @@
     "eject": "react-scripts eject"
   },
   "repository": {
-  "type": "git",
-  "url": "git://github.com/dixonscottr/react-calc.git"
+    "type": "git",
+    "url": "git://github.com/dixonscottr/react-calc.git"
   },
   "homepage": "http://dixonscottr.github.io/react-calc"
 }
