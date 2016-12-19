@@ -17,10 +17,17 @@ class Calculator extends Component {
   }
 
   completeOperation() {
-    var answer = eval(this.state.operation);
-    if(String(answer).length > 12) {
-      answer = String(answer.toFixed(6)) + '...';
+    let answer
+    if(this.state.operation.match(/.?[\D]{2,}.?/)){
+      answer = "Invalid"
     }
+    else {
+      answer = eval(this.state.operation)
+      if(String(answer).length > 12) {
+        answer = String(answer.toFixed(6)) + '...';
+      }
+    }
+
     this.setState({
       answer: answer
     })
