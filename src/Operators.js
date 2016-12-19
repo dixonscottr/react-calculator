@@ -11,7 +11,7 @@ class Operators extends Component {
           return <Button
             btn={btn}
             handleClick={this.props.onUpdate.bind(btn)}
-            classes='mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab op-button'
+            classes='mdl-button mdl-js-button mdl-button--raised op-button'
             key={btn}
             />
         })}

@@ -4,7 +4,7 @@ import Button from './Button'
 
 class NumberButtons extends Component {
   render() {
-    const nums = this.props.nums
+    const nums = this.props.nums.reverse()
     return (
       <div className='num-buttons'>
         {nums.map(num => {
