@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
+import Button from './Button'
 
 class Operators extends Component {
   render() {
+    const btns = this.props.btns
     return(
-      <div>
-        <input type='button' className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" value='+' onClick={this.props.onUpdate.bind('+')} />
-        <input type='button' value='-' className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" onClick={this.props.onUpdate.bind('-')} />
-        <input type='button' value='*' className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" onClick={this.props.onUpdate.bind('*')} />
-        <input type='button' value='/' className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" onClick={this.props.onUpdate.bind('/')} />
+      <div className='operators'>
+        {btns.map(btn => {
+          return <Button
+            btn={btn}
+            handleClick={this.props.onUpdate.bind(btn)}
+            classes='mdl-button mdl-js-button mdl-button--raised op-button'
+            key={btn}
+            />
+        })}
       </div>
     )
   }
